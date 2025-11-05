@@ -43,7 +43,6 @@ if file is not None:
                                    )
                 matches = retrieve_context(query, row[text_col])
                 st.markdown("\n\n".join([highlight_html(query, escape_markdown(m)) for m in matches]), unsafe_allow_html=True)
-                # st.text_area(row[text_col])
     else:
         st.info("Enter a search query in the sidebar to begin.")
     

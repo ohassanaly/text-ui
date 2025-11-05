@@ -2,13 +2,8 @@ from io import StringIO
 import pandas as pd
 import streamlit as st
 import re
-# from termcolor import colored
 from typing import List
 
-# def exact_text_search(df: pd.DataFrame, text_column: str, s:str) -> pd.DataFrame:
-#     #logical  (improve to manage priorities)
-#     q = re.sub(r'\s(AND|OR)\s', lambda m: '|' if m.group(1) == 'OR' else ' ', s)
-#     return(df[df["full_text"].str.contains(pat= q, regex =True)])
 def text_search(regex_pattern:str, df:pd.DataFrame, text_column: str,) -> pd.DataFrame:
     return(df[df[text_column].str.contains(pat= regex_pattern, regex =True)])
 
