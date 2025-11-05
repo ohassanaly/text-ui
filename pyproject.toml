@@ -1,0 +1,15 @@
+[project]
+name = "extract-data"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.3.3",
+    "streamlit>=1.51.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel>=7.1.0",
+]
