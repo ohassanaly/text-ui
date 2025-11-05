@@ -35,7 +35,12 @@ if file is not None:
             st.info(f"{res_df.rghc.nunique()}, rghc found")
         for index, row in res_df.iterrows() :
             st.markdown(f"**rghc: {row[id_col]}**")
-            with st.expander("show full text"):
+            with st.expander("show context of the matches"):
+                st.download_button(label = "download full text", 
+                                   data = row[text_col].encode("utf-8"), 
+                                   file_name = f"{row[id_col]}.txt",
+                                   mime="text/plain"
+                                   )
                 matches = retrieve_context(query, row[text_col])
                 st.markdown("\n\n".join([highlight_html(query, escape_markdown(m)) for m in matches]), unsafe_allow_html=True)
                 # st.text_area(row[text_col])
