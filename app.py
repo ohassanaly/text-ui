@@ -34,16 +34,18 @@ if file is not None:
     st.session_state["data"] = {"df": df, "id_col": id_col, "text_col": text_col}
 
 global_page = st.Page(
-    "global.py", title="Search through all records", icon=":material/search:"
+    "pages/global.py", title="Search through all records", icon=":material/search:"
 )
 patient_page = st.Page(
-    "patient.py",
+    "pages/patient.py",
     title="Search a given rghc record",
     icon=":material/saved_search:",
 )
 
 tazi_page = st.Page(
-    "tazi_ui.py", title="Consult Tazi Records", icon=":material/deployed_code_account:"
+    "pages/tazi_ui.py",
+    title="Consult Tazi Records",
+    icon=":material/deployed_code_account:",
 )
 
 pg = st.navigation([global_page, patient_page, tazi_page])
