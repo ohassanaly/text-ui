@@ -5,17 +5,15 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "pandas>=2.3.3",
+    "pandas>=2.2.3",
+    "registro", #package developped by ICHC Team (registrotmo.ichc@hc.fm.usp.br)
     "streamlit>=1.51.0",
-]
-
-[project.optional-dependencies]
-dev = [
-    "ipykernel>=7.1.0",
 ]
 
 [dependency-groups]
 dev = [
+    "extract-data",
+    "ipykernel>=7.1.0",
     "pre-commit>=4.3.0",
     "ruff>=0.14.3",
 ]
@@ -28,3 +26,12 @@ ignore = ["E501"]
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
+
+[tool.uv.sources]
+extract-data = { workspace = true }
+registro = { path = "registro-2.3.0.tar.gz" }
