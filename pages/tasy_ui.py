@@ -5,7 +5,7 @@ import streamlit as st
 st.caption(
     "Here the data is loaded from the data folder ; you don't need to upload anything"
 )
-with open("data/tazi_records.json", "r") as f:
+with open("data/tasy_records.json", "r") as f:
     json_data = json.load(f)
 
 rghc = st.text_input("rghc", placeholder="Enter a rghc to access its record")

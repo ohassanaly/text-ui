@@ -59,7 +59,7 @@ if st.session_state.authed:
         submit_exam = st.form_submit_button("Extract lab results")
 
     if submit_exam:
-        with st.spinner("Connecting to HCMed (wait at least 5 seconds)"):
+        with st.spinner("Connecting to HCMed (wait at least 5-10 seconds)"):
             time.sleep(5)
 
         s_hc = exames.hc_login()

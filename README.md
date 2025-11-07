@@ -32,5 +32,9 @@ Later improvements include adding a similarity / fuzzy text search instead of th
 Automatic highlighting of entities such as dates
 
 ___________
+The Tazi Page needs a data/tasy_records.json file to run
+The project (for the exams page needs the registro package ; it was installed using registro-2.3.0.tar.gz file)
+___________
+
 
 For questions about the different registro packages, contact ICHC Team : registrotmo.ichc@hc.fm.usp.br (Rafael Oliveira, Joaquim Gasparini, Gustavo Acarvalho)
