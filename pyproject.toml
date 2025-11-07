@@ -34,4 +34,4 @@ members = [
 
 [tool.uv.sources]
 extract-data = { workspace = true }
-#registro = { path = "registro-2.3.0.tar.gz" }
+registro = { path = "registro-2.3.0.tar.gz" }

@@ -13,3 +13,7 @@ wheels/
 /local
 /data
 *.ipynb
+
+#package developped by ICHC Team (registrotmo.ichc@hc.fm.usp.br)
+#private for the moment
+registro-2.3.0.tar.gz
