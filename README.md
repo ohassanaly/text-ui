@@ -30,9 +30,11 @@ Nota : during the dev stage, data used was the concatenation of the different fi
 
 ___________
 
-Later improvements include implementing other similarity search tools
+Later improvements include :<br>
 
-Automatic highlighting of entities such as dates
+- Implementing other similarity search methods <br>
+- Automatic highlighting of entities such as dates <br>
+- Manage boolean operators search <br>
 
 ___________
 The Tazi Page needs a data/tasy_records.json file to run
