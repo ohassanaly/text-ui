@@ -57,5 +57,5 @@ with st.form("Tasy fuzzy search"):
             st.subheader("Full record")
             st.json({k: v for k, v in record.items() if v != ""})
 
-    else:
-        st.info("invalid rghc")
+        else:
+            st.info("invalid rghc")
