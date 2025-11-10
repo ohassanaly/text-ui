@@ -16,6 +16,23 @@ def text_search(
     return df[df[text_column].str.contains(pat=regex_pattern, regex=True)]
 
 
+def text_search_fuzzy(
+    word_query: str,
+    df: pd.DataFrame,
+    text_column: str,
+    max_l_dist: int,
+) -> pd.DataFrame:
+    return df[
+        df[text_column].apply(
+            lambda t: bool(
+                find_near_matches(
+                    word_query, t, max_l_dist, max_l_dist, max_l_dist, max_l_dist
+                )
+            )
+        )
+    ]
+
+
 # ---------- Helpers ----------
 @st.cache_data(show_spinner=False)
 def load_csv(file_bytes: bytes) -> pd.DataFrame:

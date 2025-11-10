@@ -1,6 +1,7 @@
 import streamlit as st
+from fuzzysearch import find_near_matches
 
-from utils import escape_markdown, highlight_html
+from utils import escape_markdown, highlight_html_fuzzy
 
 if "data" not in st.session_state:
     st.warning("Please upload a CSV in the sidebar first")
@@ -15,6 +16,14 @@ date_col = data["date_col"]
 # Search controls
 st.header("Search for a specific rghc")
 id_query = st.text_input("any rghc", placeholder="Enter rghc")
+l_dist = st.number_input(
+    "Levenshtein distance : set 0 for an exact search",
+    min_value=0,
+    value=1,
+    max_value=3,
+    step=1,
+    format="%d",
+)
 
 if not id_query:
     st.table(df[id_col])
@@ -34,10 +43,11 @@ if id_query:
                 file_name=f"{id_query}.txt",
                 mime="text/plain",
             )
+            matches = find_near_matches(word_query, text, max_l_dist=l_dist)
             if word_query not in text:
                 st.info("No match found")
             st.markdown(
-                highlight_html(word_query, escape_markdown(text)),
+                highlight_html_fuzzy(word_query, escape_markdown(text), l_dist),
                 unsafe_allow_html=True,
             )
         else:
