@@ -22,7 +22,7 @@ with st.form("Tasy fuzzy search"):
         "ex : recaida", placeholder="Enter your search query (optional)"
     )
     l_dist = st.number_input(
-        "Levenshtein distance",
+        "Levenshtein distance: set 0 for an exact search",
         min_value=0,
         value=1,
         max_value=3,
