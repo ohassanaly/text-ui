@@ -26,7 +26,12 @@ def text_search_fuzzy(
         df[text_column].apply(
             lambda t: bool(
                 find_near_matches(
-                    word_query, t, max_l_dist, max_l_dist, max_l_dist, max_l_dist
+                    word_query,
+                    t,
+                    max_substitutions=max_l_dist,
+                    max_insertions=1,
+                    max_deletions=1,
+                    max_l_dist=max_l_dist,
                 )
             )
         )
@@ -76,7 +81,14 @@ def retrieve_context_fuzzy(query: str, text: str, max_l_dist: int = 1) -> List:
     lines = text.splitlines()
     for i, line in enumerate(lines):
         # if re.search(query, line):
-        if find_near_matches(query, line, max_l_dist=max_l_dist):
+        if find_near_matches(
+            query,
+            line,
+            max_substitutions=max_l_dist,
+            max_insertions=1,
+            max_deletions=1,
+            max_l_dist=max_l_dist,
+        ):
             prev_line = lines[i - 1] if i > 0 else ""
             curr_line = line
             next_line = lines[i + 1] if i < len(lines) - 1 else ""
@@ -93,7 +105,14 @@ def highlight_html(s: str, text: str) -> str:
 
 def highlight_html_fuzzy(query: str, text: str, max_l_dist: int = 1) -> str:
     """Return HTML with <mark> tags around fuzzy matches of `query` in `text`."""
-    matches = find_near_matches(query, text, max_l_dist=max_l_dist)
+    matches = find_near_matches(
+        query,
+        text,
+        max_substitutions=max_l_dist,
+        max_insertions=1,
+        max_deletions=1,
+        max_l_dist=max_l_dist,
+    )
     if not matches:
         return text
 
