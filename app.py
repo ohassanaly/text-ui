@@ -71,5 +71,14 @@ redcap_page = st.Page(
     icon=":material/data_check:",
 )
 
-pg = st.navigation([global_page, patient_page, tasy_page, exam_page, redcap_page])
+full_tasy_page = st.Page(
+    "pages/full_tasy_ui.py",
+    title="Datalake UI",
+    icon=":material/dataset:",
+)
+
+
+pg = st.navigation(
+    [global_page, patient_page, tasy_page, exam_page, redcap_page, full_tasy_page]
+)
 pg.run()
