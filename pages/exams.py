@@ -60,7 +60,7 @@ if st.session_state.authed:
 
     if submit_exam:
         with st.spinner("Connecting to HCMed (wait at least 5-10 seconds)"):
-            time.sleep(5)
+            time.sleep(10)
 
         s_hc = exames.hc_login()
         s_hc.logar(username, password)
