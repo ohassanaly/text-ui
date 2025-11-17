@@ -49,7 +49,7 @@ global_page = st.Page(
 )
 patient_page = st.Page(
     "pages/patient.py",
-    title="Search a given rghc record",
+    title="Search a given record",
     icon=":material/saved_search:",
 )
 
@@ -65,5 +65,11 @@ exam_page = st.Page(
     icon=":material/heart_plus:",
 )
 
-pg = st.navigation([global_page, patient_page, tasy_page, exam_page])
+redcap_page = st.Page(
+    "pages/redcap_ui.py",
+    title="Search with Redcap API",
+    icon=":material/data_check:",
+)
+
+pg = st.navigation([global_page, patient_page, tasy_page, exam_page, redcap_page])
 pg.run()
